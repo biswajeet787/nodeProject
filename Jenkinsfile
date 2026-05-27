@@ -19,20 +19,19 @@
 
 pipeline {
    agent any
-
    stages {
-
        stage('Build') {
            steps {
                sh 'npm install'
            }
        }
-
-       stage('Run') {
+       stage('Deploy') {
            steps {
-               sh 'node index.js'
+               sh '''
+               pm2 delete myapp || true
+               pm2 start index.js --name myapp
+               '''
            }
        }
-
    }
 }
