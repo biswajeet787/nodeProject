@@ -19,12 +19,23 @@
 
 pipeline {
    agent any
+
    stages {
+
        stage('Build') {
            steps {
                sh 'npm install'
            }
        }
+
+       stage('Test') {
+           steps {
+               sh 'node index.js &'
+               sh 'sleep 5'
+               sh 'curl http://localhost:3000'
+           }
+       }
+
        stage('Deploy') {
            steps {
                sh '''
