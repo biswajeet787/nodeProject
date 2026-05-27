@@ -39,8 +39,8 @@ pipeline {
        stage('Deploy') {
            steps {
                sh '''
-               pm2 delete myapp || true
-               pm2 start index.js --name myapp
+               /usr/local/bin/pm2 delete myapp || true
+               /usr/local/bin/pm2 start index.js --name myapp
                '''
            }
        }
