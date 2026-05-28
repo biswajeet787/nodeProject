@@ -1,5 +1,15 @@
-console.log("Hello Jenkins Pipeline");
-let a= 5;
-let b= 25;
-console.log("total value is: ",a+b);
-let c = 50
+const http = require('http');
+
+const server = http.createServer((req, res) => {
+
+   res.write("Hello from Jenkins Auto Deployment");
+
+   res.end();
+
+});
+
+server.listen(3000, '0.0.0.0', () => {
+
+   console.log("Server running on port 3000");
+
+});
