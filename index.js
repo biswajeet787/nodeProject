@@ -2,8 +2,7 @@ const http = require('http');
 
 const server = http.createServer((req, res) => {
 
-   res.write("Hello from Jenkins Auto Deployment");
-
+res.write("CD Pipeline Working Successfully");
    res.end();
 
 });
