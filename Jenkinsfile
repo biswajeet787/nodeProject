@@ -18,21 +18,35 @@
 
 
 pipeline {
-   agent any
 
-   stages {
+    agent any
 
-       stage('Build') {
-           steps {
-               sh 'npm install'
-           }
-       }
+    stages {
 
-       stage('Run') {
-           steps {
-               sh 'node index.js'
-           }
-       }
+        stage('Build Stage') {
 
-   }
+            steps {
+
+                sh 'npm install'
+
+            }
+        }
+
+        stage('Deploy Stage') {
+
+            steps {
+
+                sh '''
+
+                /usr/local/bin/pm2 delete myapp || true
+
+                /usr/local/bin/pm2 start index.js --name myapp
+
+                /usr/local/bin/pm2 save
+
+                '''
+
+            }
+        }
+    }
 }
