@@ -4,7 +4,7 @@ const server = http.createServer((req, res) => {
 
    res.write("Hello from Jenkins Auto Deployment 11");
 
-   res.end();
+   res.end()
 
 });
 
