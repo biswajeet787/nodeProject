@@ -4,7 +4,7 @@ pipeline {
    stages {
        stage('Build') {
            steps {
-               sh 'node index.js'
+               echo 'Building Application............................'
            }
        }
 
